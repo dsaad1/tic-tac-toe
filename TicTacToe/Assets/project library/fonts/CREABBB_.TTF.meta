@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e7449cb4a20c40b42831c6d2d614406a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CreativeBlock BB
+  fontNames:
+  - CreativeBlock BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 03664a461d7f44b45b40991481171e0f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

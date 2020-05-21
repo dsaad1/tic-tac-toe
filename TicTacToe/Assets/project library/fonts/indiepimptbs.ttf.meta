@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b99eeccbe238c6a4fb4d78c982407ae8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Indy Pimp
+  fontNames:
+  - Indy Pimp
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a895f04613d984d48a94fcf15e5d723f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
