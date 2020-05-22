@@ -13,4 +13,9 @@ public class AIBase : MonoBehaviour
         }
         BoardManager.self.PlayerTurn();
     }
+
+    public void SetIcon(Sprite icon1)
+    {
+        icon = icon1;
+    }
 }

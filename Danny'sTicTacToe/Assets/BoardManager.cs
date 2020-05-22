@@ -12,6 +12,12 @@ public class BoardManager : MonoBehaviour
     public List<PieceInfo> originalPieces = new List<PieceInfo>();
     public bool PlayerCanGo = true;
     public AIBase activeAI;
+    public Sprite x;
+    public Sprite o;
+    bool hasSelectedIcon;
+    bool hasSelectedDifficulty;
+    public AIBase easyAI;
+    public AIBase hardAI;
 
 
     void Awake ()
@@ -31,6 +37,15 @@ public class BoardManager : MonoBehaviour
 
             }
 
+        }
+
+        if (Player.self.icon.name == "x")
+        {
+            activeAI.SetIcon(o);
+        }
+        else
+        {
+            activeAI.SetIcon(x);
         }
 
     }
@@ -64,5 +79,41 @@ public class BoardManager : MonoBehaviour
     {
         PlayerCanGo = false;
         activeAI.TakeTurn();
+    }
+
+    public void SelectIcon(string anIcon)
+    {
+        if (anIcon == "x")
+        {
+            Player.self.icon = x;
+        }
+        else
+        {
+            Player.self.icon = o;
+        }
+
+        hasSelectedIcon = true;
+        ActivatePlayButton();
+    }
+
+    public void SelectDifficulty(string aDifficulty)
+    {
+        if (aDifficulty == "easy")
+        {
+            activeAI = easyAI;
+        }
+        else
+        {
+            activeAI = hardAI;
+        }
+
+        hasSelectedDifficulty = true;
+        ActivatePlayButton();
+    }
+
+    void ActivatePlayButton()
+    {
+        if (hasSelectedIcon && hasSelectedDifficulty)
+            UIManager.self.playButton.SetActive(true);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : UIManagerBase
 {
     public static UIManager self;
+    public GameObject playButton;
 
     private void Awake()
     {
