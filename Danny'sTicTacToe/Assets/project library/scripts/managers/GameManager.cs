@@ -22,6 +22,7 @@ public class GameManager : GameManagerBase {
         {
             startGameHasBeenCalled = true;
             base.StartGame();
+            BoardManager.self.OnGameStart();
         }
     }
 

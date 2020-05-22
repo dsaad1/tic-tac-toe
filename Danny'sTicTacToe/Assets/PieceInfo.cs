@@ -20,6 +20,7 @@ public class PieceInfo : MonoBehaviour
         filled = false;
         player = "";
         icon.gameObject.SetActive(false);
+        BoardManager.self.availablePieces.Add(this);
     }
 
     public void assignSquare(string player1, Sprite icon1)
@@ -39,11 +40,19 @@ public class PieceInfo : MonoBehaviour
 
         filled = true;
         GetComponent<Button>().interactable = false;
+        BoardManager.self.availablePieces.Remove(this);
+        BoardManager.self.CheckBoard();
+
     }
 
     public void assignSquare()
     {
-        assignSquare("player", Player.self.icon);
+        if (BoardManager.self.PlayerCanGo)
+        {
+            assignSquare("player", Player.self.icon);
+            BoardManager.self.AITurn();
+        }
+
 
     }
 

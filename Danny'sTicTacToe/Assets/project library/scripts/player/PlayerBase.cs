@@ -7,7 +7,7 @@ public class PlayerBase : MonoBehaviour
 
     protected void OnGameEnd(string status)
     {
-        PlayerAnimations.self.OnGameEnd(status);
+       // PlayerAnimations.self.OnGameEnd(status);
 
         if (status == "win")
         {

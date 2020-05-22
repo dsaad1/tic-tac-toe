@@ -50,11 +50,18 @@ public class GameManagerBase : MonoBehaviour
            
 
         }
-        else
+        else if (status == "tie")
         {
-           
+            Debug.Log("tie");
 
          
+
+        }
+        else
+        {
+
+
+
 
         }
     }
