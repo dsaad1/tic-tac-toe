@@ -7,6 +7,7 @@ public class UIManager : UIManagerBase
 {
     public static UIManager self;
     public GameObject playButton;
+    public GameObject drawText;
 
     private void Awake()
     {
@@ -22,6 +23,8 @@ public class UIManager : UIManagerBase
     {
         base.OnGameEnd(status);
     }
+
+  
 
 
 

@@ -2,15 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PieceInfo : MonoBehaviour
 {
-    private int x;
-    private int y;
-    private bool filled;
-    private string player;
+    [SerializeField] int x;
+    [SerializeField] int y;
+    public bool filled;
+    public string player;
     [SerializeField] Image icon;
 
     public void Initialize(int x1, int y1)
@@ -50,10 +51,15 @@ public class PieceInfo : MonoBehaviour
         if (BoardManager.self.PlayerCanGo)
         {
             assignSquare("player", Player.self.icon);
-            BoardManager.self.AITurn();
+            BoardManager.self.PlayerCanGo = false;
+            Invoke("TakeAITurn", .5f);
         }
+    }
 
-
+    public void TakeAITurn()
+    {
+        if (GameManager.self.GameIsActive())
+            BoardManager.self.AITurn();
     }
 
 

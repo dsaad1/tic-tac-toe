@@ -52,9 +52,18 @@ public class BoardManager : MonoBehaviour
 
     public void CheckBoard()
     {
-        if (availablePieces.Count == 0)
+        if (WinManager.self.CheckForWin() && WinManager.self.whoWon == "player")
+        {
+            GameManager.self.EndGame("win");
+        }
+        else if (WinManager.self.CheckForWin() && WinManager.self.whoWon == "AI")
+        {
+            GameManager.self.EndGame("lose");
+        }
+        else if (availablePieces.Count == 0)
         {
             GameManager.self.EndGame("tie");
+            UIManager.self.drawText.SetActive(true);
 
         }
 
@@ -116,4 +125,6 @@ public class BoardManager : MonoBehaviour
         if (hasSelectedIcon && hasSelectedDifficulty)
             UIManager.self.playButton.SetActive(true);
     }
+
+
 }
