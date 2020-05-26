@@ -45,7 +45,6 @@ public class WinManager : MonoBehaviour
 
     public bool CheckForWin()
     {
-        Debug.Log("run");
         if (CheckPieces(diagonal1) || CheckPieces(diagonal2))
             return true;
         else if (CheckPieces(vertical1) || CheckPieces(vertical2) || CheckPieces(vertical3))

@@ -52,6 +52,7 @@ public class PieceInfo : MonoBehaviour
         {
             assignSquare("player", Player.self.icon);
             BoardManager.self.PlayerCanGo = false;
+            UIManager.self.thinkingText.SetActive(true);
             Invoke("TakeAITurn", .5f);
         }
     }
@@ -59,7 +60,10 @@ public class PieceInfo : MonoBehaviour
     public void TakeAITurn()
     {
         if (GameManager.self.GameIsActive())
+        {
             BoardManager.self.AITurn();
+            UIManager.self.thinkingText.SetActive(false);
+        }
     }
 
 

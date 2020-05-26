@@ -11,6 +11,10 @@ public class AIBase : MonoBehaviour
         {
             GetComponent<EasyAI>().TakeTurn();
         }
+        else if (GetComponent<HardAI>() != null)
+        {
+            GetComponent<HardAI>().TakeTurn();
+        }
         BoardManager.self.PlayerTurn();
     }
 

@@ -10,12 +10,13 @@ public class BoardManager : MonoBehaviour
     public List<PieceInfo> availablePieces = new List<PieceInfo> ();
     public PieceInfo[,] Board = new PieceInfo[3,3];
     public List<PieceInfo> originalPieces = new List<PieceInfo>();
-    public bool PlayerCanGo = true;
+    public bool PlayerCanGo;
     public AIBase activeAI;
     public Sprite x;
     public Sprite o;
     bool hasSelectedIcon;
     bool hasSelectedDifficulty;
+    bool hasSelectedTurn;
     public AIBase easyAI;
     public AIBase hardAI;
 
@@ -46,6 +47,11 @@ public class BoardManager : MonoBehaviour
         else
         {
             activeAI.SetIcon(x);
+        }
+
+        if (!PlayerCanGo)
+        {
+            AITurn();
         }
 
     }
@@ -105,6 +111,13 @@ public class BoardManager : MonoBehaviour
         ActivatePlayButton();
     }
 
+    public void SelectTurn(bool turn)
+    {
+        PlayerCanGo = turn;
+        hasSelectedTurn = true;
+       ActivatePlayButton();
+    }
+
     public void SelectDifficulty(string aDifficulty)
     {
         if (aDifficulty == "easy")
@@ -122,7 +135,7 @@ public class BoardManager : MonoBehaviour
 
     void ActivatePlayButton()
     {
-        if (hasSelectedIcon && hasSelectedDifficulty)
+        if (hasSelectedIcon && hasSelectedDifficulty && hasSelectedTurn)
             UIManager.self.playButton.SetActive(true);
     }
 

@@ -8,6 +8,7 @@ public class UIManager : UIManagerBase
     public static UIManager self;
     public GameObject playButton;
     public GameObject drawText;
+    public GameObject thinkingText;
 
     private void Awake()
     {
