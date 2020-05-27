@@ -165,68 +165,6 @@ public class StrategyA : MonoBehaviour
         {
             return tempPiece;
         }
-     /*  if (!BoardManager.self.Board[1, 1].filled)
-            return BoardManager.self.Board[1,1];
-       else if (corner == 1)
-        {
-            if (whichAlg == 1)
-            {
-                if (!BoardManager.self.Board[0, 1].filled)
-                    return BoardManager.self.Board[0, 1];
-                else if (!BoardManager.self.Board[1, 2].filled)
-                    return BoardManager.self.Board[1, 2];
-                return BoardManager.self.GetRandomPiece();
-            }
-            if (whichAlg == 2)
-            {
-                if (!BoardManager.self.Board[1, 0].filled)
-                    return BoardManager.self.Board[1, 0];
-                else if (!BoardManager.self.Board[0, 1].filled)
-                    return BoardManager.self.Board[0, 1];
-                return BoardManager.self.GetRandomPiece();
-            }
-            return BoardManager.self.GetRandomPiece();
-        }
-        else if (corner == 2)
-        {
-            if (whichAlg == 1)
-            {
-                if (!BoardManager.self.Board[0, 1].filled)
-                    return BoardManager.self.Board[0, 1];
-                else if (!BoardManager.self.Board[1, 0].filled)
-                    return BoardManager.self.Board[1, 0];
-                return BoardManager.self.GetRandomPiece();
-            }
-            if (whichAlg == 2)
-            {
-                if (!BoardManager.self.Board[2, 1].filled)
-                    return BoardManager.self.Board[2, 1];
-                else if (!BoardManager.self.Board[1, 0].filled)
-                    return BoardManager.self.Board[1, 0];
-                return BoardManager.self.GetRandomPiece();
-            }
-            return BoardManager.self.GetRandomPiece();
-        }
-        else if (corner == 3)
-        {
-            if (whichAlg == 1)
-            {
-                if (!BoardManager.self.Board[0, 1].filled)
-                    return BoardManager.self.Board[0, 1];
-                else if (!BoardManager.self.Board[1, 2].filled)
-                    return BoardManager.self.Board[1, 2];
-                return BoardManager.self.GetRandomPiece();
-            }
-            if (whichAlg == 2)
-            {
-                if (!BoardManager.self.Board[0, 1].filled)
-                    return BoardManager.self.Board[0, 1];
-                else if (!BoardManager.self.Board[2, 1].filled)
-                    return BoardManager.self.Board[2, 1];
-                return BoardManager.self.GetRandomPiece();
-            }
-            return BoardManager.self.GetRandomPiece();
-        } */
         return BoardManager.self.GetRandomPiece();
     }
 

@@ -37,13 +37,17 @@ public class UIManagerBase : MonoBehaviour
             HandleObjects(objsToEnableOnWin, objsToDisableOnwin);
             HandleObjects(objsToEnableOnGameOver, winDelay, objsToDisableOnGameOver, winDelay);
         }
-        else
+        else if (status == "lose")
         {
             HandleObjects(objsToEnableOnLoss, objsToDisableOnLoss);
             HandleObjects(objsToEnableOnGameOver, lossDelay, objsToDisableOnGameOver, lossDelay);
         }
+        else
+        {
+            HandleObjects(objsToEnableOnGameOver, lossDelay, objsToDisableOnGameOver, lossDelay);
 
-      
+        }
+
     }
 
     //UTILITIES ---------------------------------------------------------------------------------------
