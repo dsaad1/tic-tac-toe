@@ -11,6 +11,7 @@ public class StrategyA : MonoBehaviour
     public List<string> strategyC = new List<string>();
     public List<string> strategyD = new List<string>();
     private int corner;
+    private int whichAlg;
 
 
     public PieceInfo TakeTurn(int turn)
@@ -29,7 +30,8 @@ public class StrategyA : MonoBehaviour
                 break;
 
             case 4:
-
+                tempPiece = TurnFour();
+                break;
             case 5:
                 tempPiece = BoardManager.self.GetRandomPiece();
                 break;
@@ -101,9 +103,13 @@ public class StrategyA : MonoBehaviour
             if (corner == 1)
             {
                 if (!BoardManager.self.Board[2, 2].filled)
+                {
+                    whichAlg = 1;
                     return BoardManager.self.Board[2, 2];
+                }
                 else if (!BoardManager.self.Board[2, 0].filled)
                 {
+                    whichAlg = 2;
                     return BoardManager.self.Board[2, 0];
                 }
                 return BoardManager.self.GetRandomPiece();
@@ -112,9 +118,13 @@ public class StrategyA : MonoBehaviour
             else if (corner == 2)
             {
                 if (!BoardManager.self.Board[0, 2].filled)
+                {
+                    whichAlg = 1;
                     return BoardManager.self.Board[0, 2];
+                }
                 else if (!BoardManager.self.Board[2, 2].filled)
                 {
+                    whichAlg = 2;
                     return BoardManager.self.Board[2, 2];
                 }
                 return BoardManager.self.GetRandomPiece();
@@ -123,31 +133,89 @@ public class StrategyA : MonoBehaviour
             else if (corner == 3)
             {
                 if (!BoardManager.self.Board[0, 2].filled)
+                {
+                    whichAlg = 1;
                     return BoardManager.self.Board[0, 2];
+                }
                 else if (!BoardManager.self.Board[2, 0].filled)
                 {
+                    whichAlg = 2;
                     return BoardManager.self.Board[2, 0];
                 }
                 return BoardManager.self.GetRandomPiece();
             }
-
-
             return BoardManager.self.GetRandomPiece();
         }
-        
-        
-        
-
     }
 
-    void CopyList(List<string> aList)
+    public PieceInfo TurnFour()
     {
-        foreach(string s in aList)
+       if (!BoardManager.self.Board[1, 1].filled)
+            return BoardManager.self.Board[1,1];
+       else if (corner == 1)
         {
-            activeStrategy.Add(s);
+            if (whichAlg == 1)
+            {
+                if (!BoardManager.self.Board[0, 1].filled)
+                    return BoardManager.self.Board[0, 1];
+                else if (!BoardManager.self.Board[1, 2].filled)
+                    return BoardManager.self.Board[1, 2];
+                return BoardManager.self.GetRandomPiece();
+            }
+            if (whichAlg == 2)
+            {
+                if (!BoardManager.self.Board[1, 0].filled)
+                    return BoardManager.self.Board[1, 0];
+                else if (!BoardManager.self.Board[0, 1].filled)
+                    return BoardManager.self.Board[0, 1];
+                return BoardManager.self.GetRandomPiece();
+            }
+            return BoardManager.self.GetRandomPiece();
         }
-    }
+        else if (corner == 2)
+        {
+            if (whichAlg == 1)
+            {
+                if (!BoardManager.self.Board[0, 1].filled)
+                    return BoardManager.self.Board[0, 1];
+                else if (!BoardManager.self.Board[1, 0].filled)
+                    return BoardManager.self.Board[1, 0];
+                return BoardManager.self.GetRandomPiece();
+            }
+            if (whichAlg == 2)
+            {
+                if (!BoardManager.self.Board[2, 1].filled)
+                    return BoardManager.self.Board[2, 1];
+                else if (!BoardManager.self.Board[1, 0].filled)
+                    return BoardManager.self.Board[1, 0];
+                return BoardManager.self.GetRandomPiece();
+            }
+            return BoardManager.self.GetRandomPiece();
+        }
+        else if (corner == 3)
+        {
+            if (whichAlg == 1)
+            {
+                if (!BoardManager.self.Board[0, 1].filled)
+                    return BoardManager.self.Board[0, 1];
+                else if (!BoardManager.self.Board[1, 2].filled)
+                    return BoardManager.self.Board[1, 2];
+                return BoardManager.self.GetRandomPiece();
+            }
+            if (whichAlg == 2)
+            {
+                if (!BoardManager.self.Board[0, 1].filled)
+                    return BoardManager.self.Board[0, 1];
+                else if (!BoardManager.self.Board[2, 1].filled)
+                    return BoardManager.self.Board[2, 1];
+                return BoardManager.self.GetRandomPiece();
+            }
+            return BoardManager.self.GetRandomPiece();
+        }
+        return BoardManager.self.GetRandomPiece();
 
+
+    }
 
 
 }
